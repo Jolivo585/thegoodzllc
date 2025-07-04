@@ -1,0 +1,117 @@
+import React from "react"; import { Button, Input, Textarea } from "@/components/ui"; import { Card, CardContent } from "@/components/ui/card"; import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+export default function HomePage() { const handleDonation = () => { window.location.href = "https://donorbox.org/valor-and-grounds"; // Replace with actual donation URL };
+
+const handleContactSubmit = (e) => { e.preventDefault(); // Submit contact form logic here (API call or third-party service) alert("Thank you for reaching out! We'll be in touch shortly."); };
+
+return ( <div className="p-6 space-y-8 max-w-6xl mx-auto"> <header className="text-center space-y-2"> <h1 className="text-4xl font-bold text-emerald-800">Valor & Grounds</h1> <p className="text-xl text-gray-600"> Coffee. Healing. Connection. A Veteran Wellness Café Lounge </p> <div className="space-x-4 mt-4"> <Button onClick={handleDonation}>Donate Now</Button> <Button variant="outline">Become a Monthly Donor</Button> </div> </header>
+
+<Tabs defaultValue="mission" className="w-full">
+    <TabsList className="grid w-full grid-cols-6">
+      <TabsTrigger value="mission">Our Mission</TabsTrigger>
+      <TabsTrigger value="programs">Programs</TabsTrigger>
+      <TabsTrigger value="funding">Funding</TabsTrigger>
+      <TabsTrigger value="impact">Get Involved</TabsTrigger>
+      <TabsTrigger value="blog">Blog</TabsTrigger>
+      <TabsTrigger value="contact">Contact</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="mission">
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <h2 className="text-2xl font-semibold">Healing Heroes & Their Families</h2>
+          <p>
+            Valor & Grounds is a nonprofit café and wellness center led by veterans, for veterans.
+            We provide free therapy, holistic healing, peer support, and family services in a welcoming
+            space where veterans and loved ones can feel safe, seen, and supported.
+          </p>
+          <ul className="list-disc pl-6 text-gray-700">
+            <li>Aqua, mental, and physical therapy sessions</li>
+            <li>Holistic wellness and sound healing</li>
+            <li>Family recreation and wellness days</li>
+            <li>Housing assistance and property navigation</li>
+            <li>Emergency support and donation drives</li>
+          </ul>
+        </CardContent>
+      </Card>
+    </TabsContent>
+
+    <TabsContent value="programs">
+      <Card>
+        <CardContent className="p-6 space-y-6">
+          <h2 className="text-2xl font-semibold">Core Programs</h2>
+          <ul className="grid gap-4 list-disc pl-6">
+            <li><strong>Aqua Therapy:</strong> For mobility and trauma relief</li>
+            <li><strong>Mental Health Counseling:</strong> PTSD, trauma, grief support</li>
+            <li><strong>Physical Wellness:</strong> Yoga, adaptive fitness, PT</li>
+            <li><strong>Holistic Healing:</strong> Reiki, meditation, herbal care</li>
+            <li><strong>Family Wellness:</strong> Spa days, support circles, kids events</li>
+            <li><strong>Housing Support:</strong> Grant navigation and down payment help</li>
+          </ul>
+        </CardContent>
+      </Card>
+    </TabsContent>
+
+    <TabsContent value="funding">
+      <Card>
+        <CardContent className="p-6 space-y-6">
+          <h2 className="text-2xl font-semibold">Your Gift Makes the Mission Possible</h2>
+          <ul className="grid gap-4 list-disc pl-6">
+            <li>$25 – Meals & coffee for 5 veterans</li>
+            <li>$50 – One full therapy session</li>
+            <li>$100 – Wellness day for a spouse</li>
+            <li>$250 – Housing support case management</li>
+            <li>$500+ – Family events, aqua therapy, and more</li>
+          </ul>
+          <Button onClick={handleDonation}>Become a Sponsor</Button>
+        </CardContent>
+      </Card>
+    </TabsContent>
+
+    <TabsContent value="impact">
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <h2 className="text-2xl font-semibold">Get Involved</h2>
+          <p>
+            Help us heal those who have served. Whether you're a donor, volunteer, or partner,
+            you can make a difference.
+          </p>
+          <ul className="list-disc pl-6 text-gray-700">
+            <li>Become a monthly donor or one-time supporter</li>
+            <li>Sponsor a therapy session or family wellness day</li>
+            <li>Honor a hero through memorial giving</li>
+            <li>Host a fundraising event or drive</li>
+            <li>Connect us with grantmakers or civic leaders</li>
+          </ul>
+          <Button variant="outline">Contact Us</Button>
+        </CardContent>
+      </Card>
+    </TabsContent>
+
+    <TabsContent value="blog">
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <h2 className="text-2xl font-semibold">Blog & Stories</h2>
+          <p>Coming soon! Here we’ll share success stories, wellness tips, and updates from the Valor & Grounds team.</p>
+        </CardContent>
+      </Card>
+    </TabsContent>
+
+    <TabsContent value="contact">
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <h2 className="text-2xl font-semibold">Contact Us</h2>
+          <form onSubmit={handleContactSubmit} className="space-y-4">
+            <Input required placeholder="Your Name" />
+            <Input required type="email" placeholder="Your Email" />
+            <Textarea required placeholder="Your Message" rows={4} />
+            <Button type="submit">Send Message</Button>
+          </form>
+        </CardContent>
+      </Card>
+    </TabsContent>
+  </Tabs>
+</div>
+
+); }
+
